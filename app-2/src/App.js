@@ -3,16 +3,20 @@ import logo from "./logo.svg";
 import "./App.css";
 
 class App extends Component {
+  constructor(){
+    super()
+    this.state = {
+      things: ["Honda", "Chevrolet", "Chevy", "Toyota", "Ford"]
+    }
+  }
   render() {
+    let cars = this.state.things.map(function(el, i, arr){
+      return <h2 key={i}>{el}</h2>
+    })
+    console.dir(cars)
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        {cars}
       </div>
     );
   }
