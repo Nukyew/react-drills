@@ -21,7 +21,7 @@ export default class Login extends Component {
         }
     }
 
-    alertLogin(e){
+    alertLogin(){
         alert(`Username: ${this.state.username} Password: ${this.state.password}`)
     }
 
@@ -30,7 +30,7 @@ export default class Login extends Component {
             <div>
                 <input id="1" onChange={e => this.textInput(e)} placeholder="username"/>
                 <input id="2" onChange={e => this.textInput(e)} placeholder="password"/>
-                <button onClick={e => this.alertLogin(e)}>login</button>
+                <button onClick={e => this.alertLogin()}>login</button>
             </div>
         )
     }

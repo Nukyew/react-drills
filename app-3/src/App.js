@@ -2,7 +2,46 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 
-class App extends Component {
+export default class App extends Component {
+  constructor(){
+    super()
+
+    this.state={
+      list: ['jambalaya', 'pizza', 'popcorn', 'potato', 'chips', 'burritos', 'vegetable massala (loser food)', 'ice cream', 'trip tip', 'new york steak'],
+      filter: ''
+    }
+  }
+
+  handleChange(e){
+    this.setState({
+      filter: e.target.value
+    })
+  }
+
+  render(){
+
+    /* let list = this.state.list.map((element, index) => {
+      return <li key={index}>{element}</li>
+    }) */
+
+    let list = this.state.list.filter(element => {
+      if(element.includes(this.state.filter)){
+        return true
+      }
+    }).map((element, index) => {
+      return <li key={index}>{element}</li>
+    })
+
+    return(
+      <div className="App">
+        <input onChange={e => this.handleChange(e)} />
+        {list}
+      </div>
+    )
+  }
+}
+
+/* class App extends Component {
   constructor(){
     super()
 
@@ -33,4 +72,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default App; */
